@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  * @author Igor Brum
  */
 public class MenuPrincipalController implements Initializable {
-    
     /**
      * Initializes the controller class.
      */
@@ -36,5 +35,16 @@ public class MenuPrincipalController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
+    
+    @FXML
+    public void listarCliente(ActionEvent event) throws IOException{
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(petshop.PetShop.class.getResource("view/cliente/ListarClientes.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
+    
     
 }

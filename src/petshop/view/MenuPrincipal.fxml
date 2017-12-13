@@ -18,8 +18,14 @@
           <Menu mnemonicParsing="false" text="Cliente">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#cadastrarCliente" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#listarCliente" text="Listar Todos" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Pet">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <ToolBar layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
