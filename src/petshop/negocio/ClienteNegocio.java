@@ -87,4 +87,8 @@ public class ClienteNegocio {
             throw new NegocioException("RG ja existe");
         }
     }
+
+    public String procurarPorID(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

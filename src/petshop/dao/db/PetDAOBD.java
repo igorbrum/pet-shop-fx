@@ -63,7 +63,7 @@ public class PetDAOBD extends DAOBD<Pet> implements PetDAO{
     @Override
     public void atualizar(Pet pet) {
         try {
-            String sql = "UPDATE pet SET nome=?, tipo=?, id_cliente=? "
+            String sql = "UPDATE pets SET nome=?, tipo=?, id_cliente=? "
                     + "WHERE id=?";
             conectar(sql);
             

@@ -47,7 +47,6 @@ public class CadastrarClienteController implements Initializable {
         } else {
             if (confirmarAcao()) {
                 try {
-                    clienteSelecionado.setRg(textRG.getText());
                     clienteSelecionado.setNome(textNome.getText());
                     clienteSelecionado.setTelefone(textTelefone.getText());
                     clienteNegocio.atualizar(clienteSelecionado);
@@ -60,7 +59,8 @@ public class CadastrarClienteController implements Initializable {
     
     @FXML
     public void cancelarDados(){
-        
+        Stage stage = (Stage) btnSalvar.getScene().getWindow();
+        stage.close();
     }
     
     public boolean confirmarAcao(){
@@ -78,6 +78,7 @@ public class CadastrarClienteController implements Initializable {
         textNome.setText(clienteSelecionado.getNome());
         textRG.setText(clienteSelecionado.getRg());
         textTelefone.setText(clienteSelecionado.getTelefone());
+        textRG.setDisable(true);
     }
     
     public Cliente getClienteSelecionado(){

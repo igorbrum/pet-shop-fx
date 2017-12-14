@@ -65,10 +65,10 @@ public class Pet {
     }
 
     public void setNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.nome = nome;
     }
 
     public void setTipo(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.tipo = tipo;
     }
 }

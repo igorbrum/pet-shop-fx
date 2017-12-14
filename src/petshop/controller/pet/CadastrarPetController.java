@@ -56,13 +56,28 @@ public class CadastrarPetController implements Initializable {
         Stage stage = (Stage) btnSalvar.getScene().getWindow();
         
         if (petSelecionado == null) {
-            String tipoOpcao = "cadastrar";
+            if (textNomePet.getText().length() > 0 && textCliente.getText().length() > 0 && textTipoPet.getText().length() > 0) {
+                System.out.println(textNomePet.getText().length());
+                String tipoOpcao = "cadastrar";
+                if (confirmarAcao(tipoOpcao)) {
+                    try {
+                        petNegocio.salvar(new Pet(textNomePet.getText(), textTipoPet.getText(), clienteSelecionado));
+                        stage.close();
+                    } catch (Exception e) {
+                        System.out.println("Errou");
+                    }
+                }       
+            }
+        } else {
+            String tipoOpcao = "editar";
             if (confirmarAcao(tipoOpcao)) {
                 try {
-                    petNegocio.salvar(new Pet(textNomePet.getText(), textTipoPet.getText(), clienteSelecionado));
+                    petSelecionado.setNome(textNomePet.getText());
+                    petSelecionado.setTipo(textTipoPet.getText());
+                    petNegocio.atualizar(petSelecionado);
                     stage.close();
-                } catch (Exception e) {
-                    System.out.println("Errou");
+                } catch (NegocioException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -107,5 +122,6 @@ public class CadastrarPetController implements Initializable {
         textCliente.setText("1");
         textNomePet.setText(petSelecionado.getNome());
         textTipoPet.setText(petSelecionado.getTipo());
+        textCliente.setDisable(true);
     }
 }

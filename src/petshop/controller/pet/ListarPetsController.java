@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,10 +19,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import petshop.model.Cliente;
 import petshop.model.Pet;
 import petshop.negocio.ClienteNegocio;
 import petshop.negocio.NegocioException;
@@ -41,11 +38,12 @@ public class ListarPetsController implements Initializable{
     private Pet petSelecionado;
     private ObservableList<Pet> observableListaPets;
     
+    @FXML private VBox painelPet;
     @FXML private TableView<Pet> tableViewPet;
-    //@FXML private TableColumn<Pet, Integer> tableColumnCliente;
+    //@FXML private TableColumn<Pet, String> tableColumnCliente;
+    @FXML private TableColumn<Pet, Integer> tableColumnCliente = new TableColumn<>("id_cliente");
     @FXML private TableColumn<Pet, String> tableColumnNome;
     @FXML private TableColumn<Pet, String> tableColumnTipoPet;
-    @FXML TableColumn<Cliente, String> tableColumnCliente = new TableColumn<Cliente, String>("id_cliente");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,17 +53,9 @@ public class ListarPetsController implements Initializable{
     
     @FXML
     public void listarPets() {
-        
-        tableColumnCliente.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Cliente, String>, ObservableValue<String>>(){
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Cliente, String> p) {
-                return SimpleStringProperty(p.getValue().getNome());
-            }
-
-            private ObservableValue<String> SimpleStringProperty(String nome) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-            
-        });
+        String teste = new PropertyValueFactory<Pet, Integer>("id").toString();
+        System.out.println(teste);
+        tableColumnCliente.setCellValueFactory(new PropertyValueFactory<Pet, Integer>("id"));
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumnTipoPet.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         
@@ -81,6 +71,7 @@ public class ListarPetsController implements Initializable{
         Parent root = FXMLLoader.load(petshop.PetShop.class.getResource("view/pet/CadastrarPet.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelPet.getScene().getWindow());
         stage.showAndWait();
     }
     
@@ -99,6 +90,7 @@ public class ListarPetsController implements Initializable{
                 Stage dialogStage = new Stage();
                 dialogStage.setScene(new Scene(root));
                 dialogStage.initModality(Modality.APPLICATION_MODAL);
+                dialogStage.initOwner(painelPet.getScene().getWindow());
                 dialogStage.showAndWait();
                 this.listarPets();
             } catch (IOException ex) {

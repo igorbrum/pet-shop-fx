@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -18,6 +19,9 @@ import javafx.stage.Stage;
  * @author Igor Brum
  */
 public class MenuPrincipalController implements Initializable {
+    
+    @FXML private AnchorPane painelMenuPrincipal;
+    
     /**
      * Initializes the controller class.
      */
@@ -33,6 +37,7 @@ public class MenuPrincipalController implements Initializable {
         root = FXMLLoader.load(petshop.PetShop.class.getResource("view/cliente/CadastrarCliente.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
     
@@ -43,6 +48,7 @@ public class MenuPrincipalController implements Initializable {
         root = FXMLLoader.load(petshop.PetShop.class.getResource("view/cliente/ListarClientes.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
     
@@ -53,6 +59,7 @@ public class MenuPrincipalController implements Initializable {
         root = FXMLLoader.load(petshop.PetShop.class.getResource("view/pet/CadastrarPet.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
     
@@ -63,6 +70,7 @@ public class MenuPrincipalController implements Initializable {
         root = FXMLLoader.load(petshop.PetShop.class.getResource("view/pet/ListarPets.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
 }

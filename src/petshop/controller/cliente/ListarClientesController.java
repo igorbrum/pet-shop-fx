@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,6 +42,7 @@ public class ListarClientesController implements Initializable {
     @FXML private TableColumn<Cliente, String> tableColumnNome;
     @FXML private TableColumn<Cliente, String> tableColumnTelefone;
     @FXML private TextField textProcurarNome;
+    @FXML private Button btnCancelar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -123,5 +125,11 @@ public class ListarClientesController implements Initializable {
         } catch (NegocioException ex) {
             Logger.getLogger(ListarClientesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    public void cancelarDados(){
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 }
