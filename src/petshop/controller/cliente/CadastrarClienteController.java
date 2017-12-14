@@ -64,10 +64,7 @@ public class CadastrarClienteController implements Initializable {
     }
     
     public boolean confirmarAcao(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                                    "Você deseja realmente alterar essa entrada?",
-                                    ButtonType.YES, ButtonType.NO
-                                    );
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Você deseja realmente alterar essa entrada?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         
         if (alert.getResult() == ButtonType.YES) {

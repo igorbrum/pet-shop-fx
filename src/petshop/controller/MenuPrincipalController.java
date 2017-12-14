@@ -46,5 +46,23 @@ public class MenuPrincipalController implements Initializable {
         stage.showAndWait();
     }
     
+    @FXML
+    public void cadastrarPet(ActionEvent event) throws IOException {
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(petshop.PetShop.class.getResource("view/pet/CadastrarPet.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
     
+    @FXML
+    public void listarPet(ActionEvent event) throws IOException {
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(petshop.PetShop.class.getResource("view/pet/ListarPets.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
 }

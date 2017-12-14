@@ -23,7 +23,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Pet">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" onAction="#cadastrarPet" text="Cadastrar Pet" />
+                  <MenuItem mnemonicParsing="false" onAction="#listarPet" text="Listar todos os Pets" />
               </items>
             </Menu>
         </menus>
@@ -31,6 +32,7 @@
       <ToolBar layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <items>
           <Button mnemonicParsing="false" onAction="#cadastrarCliente" text="Cadastrar Cliente" />
+            <Button mnemonicParsing="false" onAction="#cadastrarPet" text="Cadastrar Pet" />
         </items>
       </ToolBar>
    </children>
